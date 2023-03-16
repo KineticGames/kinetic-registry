@@ -15,7 +15,7 @@ import {
 
 @Controller('package')
 export class PackageController {
-  constructor(private readonly packageService: PackageService) { }
+  constructor(private readonly packageService: PackageService) {}
 
   @Get(':name')
   async getPostById(@Param('name') name: string): Promise<PackageModel> {
