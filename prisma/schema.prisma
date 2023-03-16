@@ -11,10 +11,12 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  email    String    @unique
-  name     String?
-  packages Package[]
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  packages  Package[]
 }
 
 model Package {
@@ -23,15 +25,18 @@ model Package {
   url         String?
   owners      User[]
   obsolete    Boolean          @default(false)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
   versions    PackageVersion[]
 }
 
 model PackageVersion {
-  Package      Package @relation(fields: [packageName], references: [name])
+  Package      Package  @relation(fields: [packageName], references: [name])
   packageName  String
   versionMajor Int
   versionMinor Int
   versionPatch Int
+  release      DateTime @default(now())
 
   @@id([packageName, versionMajor, versionMinor, versionPatch])
 }
