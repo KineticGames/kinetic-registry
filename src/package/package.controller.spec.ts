@@ -1,3 +1,4 @@
+import { createMock } from '@golevelup/ts-jest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { PackageController } from './package.controller';
 
@@ -7,7 +8,9 @@ describe('PackageController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PackageController],
-    }).compile();
+    })
+      .useMocker(createMock)
+      .compile();
 
     controller = module.get<PackageController>(PackageController);
   });
