@@ -154,3 +154,5 @@ jobs:
         run: pnpm install
 
       - run: pnpm test
+        env:
+          DATABASE_URL: "file:./dev.db"
