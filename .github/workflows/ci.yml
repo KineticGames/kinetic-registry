@@ -20,6 +20,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
+          version: 6.0.2
           run_install: false
 
       - name: Get pnpm store directory
@@ -55,6 +56,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
+          version: 6.0.2
           run_install: false
 
       - name: Get pnpm store directory
@@ -90,6 +92,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
+          version: 6.0.2
           run_install: false
 
       - name: Get pnpm store directory
@@ -125,6 +128,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
+          version: 6.0.2
           run_install: false
 
       - name: Get pnpm store directory
