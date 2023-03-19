@@ -62,6 +62,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - run: pnpm test:e2e
+      - run: pnpm ci:e2e
         env:
           DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/kinetic-registry"
