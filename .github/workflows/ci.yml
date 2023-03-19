@@ -193,4 +193,4 @@ jobs:
 
       - run: pnpm test
         env:
-          DATABASE_URL: "postgresql:postgres:postgres@localhost:5432/kinetic-registry"
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/kinetic-registry"
