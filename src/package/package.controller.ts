@@ -3,6 +3,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpException,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -18,8 +20,15 @@ export class PackageController {
   constructor(private readonly packageService: PackageService) {}
 
   @Get(':name')
-  async getPostById(@Param('name') name: string): Promise<PackageModel> {
-    return this.packageService.package({ name: name });
+  async getPackageById(@Param('name') name: string): Promise<PackageModel> {
+    const pkg = await this.packageService.package({ name: name });
+    if (!pkg) {
+      throw new HttpException(
+        `Could not find package with name: ${name}`,
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    return pkg;
   }
 
   @Get('most_recent')
