@@ -37,6 +37,7 @@ model PackageVersion {
   versionMinor Int
   versionPatch Int
   release      DateTime @default(now())
+  deprecated   Boolean  @default(false)
 
   @@id([packageName, versionMajor, versionMinor, versionPatch])
 }

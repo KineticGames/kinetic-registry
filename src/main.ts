@@ -11,6 +11,10 @@ async function bootstrap() {
     type: VersioningType.URI,
   });
 
+  app.enableCors();
+
+  app.setGlobalPrefix('api');
+
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);
 
