@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:15.2
+    networks:
+      - postgres
+    volumes:
+      - /data/postgres:/data/postgres
+    env_file:
+      - docker.env
+
+  nestjs-api:
+    image: kinetic-registry
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge

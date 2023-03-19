@@ -13,6 +13,7 @@ lerna-debug.log*
 
 # Environment
 .env
+docker.env
 
 # OS
 .DS_Store
